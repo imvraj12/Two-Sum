@@ -1,44 +1,53 @@
-// 1. Two Sum.
+// 2. Best Time to Buy and Sell Stock
 /*
-Given an array of integers nums and an integer target,
-return indices of the two numbers such that they add up to target.
+You are given an array prices where prices[i] is the price 
+  of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy
+  one stock and choosing a different day in the future to sell that stock.
 ****
-through vector..
+through vector
 
  class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    int maxProfit(vector<int>& prices) {
         
     }
 };
 ****
 */
-
 #include<iostream>
 using namespace std;
 int main()
 {
-    int n;
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
-    {
-    	cin>>a[i];
+	int n;
+	cin>>n;
+	int a[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
 	}
-    int target;
-    cin>>target;
-    for(int i=0;i<n-1;i++)
-    for(int j=i+1;j<n;j++)
-    {
-        if(a[i]+a[j]==target)
-        {
-            cout<<"["<<i<<","<<j
-			<<"]";
-        }
-        else
-        {
-        	j++;
+	int min=a[0];
+	int k=0;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]<min)
+		{
+			min=a[i];
+			k++;
 		}
-    }
+	}
+	int max=min;
+	for(int i=k;i<n;i++)
+	{
+		if(a[i]>max)
+		{
+			max=a[i];
+			
+		}
+	}
+
+	cout<<"Profit is: "<<max-min;
 }
+
+
 
